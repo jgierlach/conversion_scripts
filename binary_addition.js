@@ -50,23 +50,15 @@ const addInputs = (num1, num2) => {
   num1 = [...num1].reverse()
   num2 = [...num2].reverse()
 
-  console.log(num1)
-  console.log(num2)
-
   for (let i = 0; i <= num1.length; i++) {
     // push num1s value to the cue
     cue.push(num1[i])
     // push num2s value to the cue
     cue.push(num2[i])
-    console.log('this is what the cue has in it', cue)
-
     // the amount of 1s and 0's in the cue are counted
     cue.forEach(i => {
       i == '1' ? oneCount++ : zeroCount++
     })
-
-    console.log('This is the oneCount', oneCount)
-    console.log('This is the zeroCount', zeroCount)
 
     // the conditionals for the cue length being 2
     if (cue.length == 2) {
@@ -107,8 +99,6 @@ const addInputs = (num1, num2) => {
       zeroCount = 0
     }
   }
-  console.log('')
-  console.log('final answer ', result.join(''))
   return result.join('')
 }
 
@@ -121,12 +111,10 @@ const binaryAddition = (input1, input2) => {
     return addInputs(input1, input2)
   } else {
     // This just assigns the value that is longer to a variable
-    let num2 = theLongerValue(input1, input2)
+    let num1 = theLongerValue(input1, input2)
     // This takes the shorter value and append 0's until it's length is equal to the bigger input
-    let num1 = appendZeros(input1, input2)
+    let num2 = appendZeros(input1, input2)
     // return the results of the addition as the final answser
     return addInputs(num1, num2)
   }
 }
-
-binaryAddition('1111', '111') // should be 10110
